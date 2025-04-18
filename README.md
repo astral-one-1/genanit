@@ -1,0 +1,2 @@
+# genanit
+Genanit loyihasi
