@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genanit</title>
+    <link rel="stylesheet" href="{% static 'semantic-ui/semantic-ui/semantic.min.css' %}">
+    <link rel="alternate" href="atom.xml" type="application/atom+xml" title="Atom">
+    <link rel="icon" href="{% static 'Images/genanit.title.logo.jpg' %}">
+</head>
+<body>
+    <div class="ui header segment">
+
+        <div class="ui container">
+            <h1 class="ui header"> GENANIT <sup>TM</sup></h1>
+            <button style="display: flex; justify-content: end; text-decoration: none; color: black;" class="ui black basic button"> <a style="color:black" href="http://127.0.0.1:8000/dark"> Black</a></button>
+            <div class="ui divider"></div>
+            <p>Biz esa yurishda davom etamiz!</p>
+        </div>
+    </div>
+
+    <div class="ui container">
+        <div class="ui placeholder segment">
+            <div class="ui icon header">
+                Manzilni ushbu qism orqali ID raqam orqali qidirasiz
+            </div>
+            <div class="inline" style="width: 90%; ">
+                <div class="ui massive form search">
+                    <form method="GET" action="http://127.0.0.1:8000/genanit/" class="ui icon input" style="width: 100%;">
+                       <input name="e" value="{{e}}" type="number" class="prompt" placeholder="Manzilni kiriting">
+                       <i class="map marker alternate icon"></i> 
+                    </form>
+                </div>
+                </div>
+        </div>
+                    {% if natija %}
+                    {% for malumot in natija %}
+
+
+
+        <div class="ui segments">
+            <div class="ui segment">
+              <h3 class="ui header">Media</h3>
+          
+            
+
+              <img class="ui medium centered image" src="{{malumot.image}}">
+              
+
+              <audio  controls style="width: 100%;">
+                <source src="{{ malumot.audio.url }}" type="audio/mpeg">
+              </audio>
+
+              
+
+          </div>
+          </div>
+
+
+
+
+        <div class="ui piled segment">
+            <h4 class="ui header"> Natija</h4>
+            <table class="ui celled large black table" >
+                <thead>
+                    <tr>
+                        
+
+                        <th>Manzil nomi</th>
+                        <th style="text-align: center;">Tavfsilot</th>
+                      
+                       
+                    </tr>
+                </thead>
+
+                <tbody>
+                    
+                    <tr>
+                        
+                        <td>
+                          <h1>  {{malumot.name}} </h1>
+                        </td>
+                        <td style="text-align: center;">
+                            {{malumot.details}}
+                        </td>
+
+                        
+                        
+
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+
+     
+
+          {% endfor %}
+              {% endif %}
+
+        
+    </div>
+</body>
+</html>
+
